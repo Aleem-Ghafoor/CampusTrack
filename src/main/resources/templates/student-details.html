@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <link rel="stylesheet" th:href="@{/css/student-details.css}">
+</head>
+
+<body>
+
+<div class="details-container">
+
+    <div class="details-header">
+        <div>
+            <h1>Student Details</h1>
+            <p>Complete student record information</p>
+        </div>
+
+        <a th:href="@{/students}" class="back-btn">
+            Back to Students
+        </a>
+    </div>
+
+    <!-- Student Found -->
+    <div class="details-card" th:if="${student != null}">
+
+        <div class="student-avatar"
+             th:text="${#strings.substring(student.name, 0, 1)}">
+            A
+        </div>
+
+        <h2 th:text="${student.name}">Student Name</h2>
+
+        <p class="reg-number"
+           th:text="${student.regNo}">
+            REG-2026-001
+        </p>
+
+        <div class="details-grid">
+
+            <div class="detail-item">
+                <span>Registration Number</span>
+                <strong th:text="${student.regNo}">REG-2026-001</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>Full Name</span>
+                <strong th:text="${student.name}">Ali Khan</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>Department</span>
+                <strong th:text="${student.department}">CS</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>CGPA</span>
+                <strong th:text="${student.cgpa}">3.45</strong>
+            </div>
+
+        </div>
+
+        <div class="details-actions">
+            <a th:href="@{/students/{regNo}/edit(regNo=${student.regNo})}"
+               class="edit-btn">
+                Edit Student
+            </a>
+
+            <a th:href="@{/students}" class="back-btn">
+                Back to List
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Student Not Found -->
+    <div class="not-found-card" th:if="${student == null}">
+        <h2>Student Not Found</h2>
+
+        <p th:text="${message}">
+            No student record found.
+        </p>
+
+        <a th:href="@{/students}" class="back-btn">
+            Return to Students
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>
