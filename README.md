@@ -5,13 +5,16 @@ A web-based Student Records Management System built with **Spring Boot, Java, My
 ## Screenshots
 
 ### 1. Student Dashboard
-![Student Dashboard](docs/images/student-dashboard.png)
+
+![1795561594945](image/README/1795561594945.png)
 
 ### 2. Add New Student
-![Add New Student](docs/images/add-student.png)
+
+![1795561579939](image/README/1795561579939.png)
 
 ### 3. Edit Student
-![Edit Student](docs/images/edit-student.png)
+
+![1795561562404](image/README/1795561562404.png)
 
 ## Features
 
@@ -27,15 +30,15 @@ A web-based Student Records Management System built with **Spring Boot, Java, My
 
 ## Technology Stack
 
-| Technology | Purpose |
-|---|---|
-| Java 17 | Application programming language |
-| Spring Boot | Backend application framework |
-| Spring MVC | Request handling and routing |
-| JdbcTemplate | Database operations |
-| MySQL | Relational database |
-| Thymeleaf | Server-side HTML templates |
-| HTML and CSS | User interface |
+| Technology   | Purpose                          |
+| ------------ | -------------------------------- |
+| Java 17      | Application programming language |
+| Spring Boot  | Backend application framework    |
+| Spring MVC   | Request handling and routing     |
+| JdbcTemplate | Database operations              |
+| MySQL        | Relational database              |
+| Thymeleaf    | Server-side HTML templates       |
+| HTML and CSS | User interface                   |
 
 ## Application Architecture
 
@@ -88,11 +91,13 @@ Replace `YOUR_PASSWORD` with your local MySQL password. Do not commit real crede
 From the project root directory, run:
 
 **Windows**
+
 ```powershell
 .\mvnw.cmd spring-boot:run
 ```
 
 **macOS / Linux**
+
 ```bash
 ./mvnw spring-boot:run
 ```
@@ -103,15 +108,15 @@ Open the application in your browser:
 
 ## Main Routes
 
-| Method | Endpoint | Description |
-|---|---|---|
-| GET | `/students` | List students or search by name |
-| GET | `/students/{regNo}` | View student details |
-| GET | `/students/new` | Open the add-student form |
-| POST | `/students` | Create a student |
-| GET | `/students/{regNo}/edit` | Open the edit form |
-| POST | `/students/{regNo}/update` | Update a student |
-| POST | `/students/{regNo}/delete` | Delete a student |
+| Method | Endpoint                     | Description                     |
+| ------ | ---------------------------- | ------------------------------- |
+| GET    | `/students`                | List students or search by name |
+| GET    | `/students/{regNo}`        | View student details            |
+| GET    | `/students/new`            | Open the add-student form       |
+| POST   | `/students`                | Create a student                |
+| GET    | `/students/{regNo}/edit`   | Open the edit form              |
+| POST   | `/students/{regNo}/update` | Update a student                |
+| POST   | `/students/{regNo}/delete` | Delete a student                |
 
 ## Project Structure
 
