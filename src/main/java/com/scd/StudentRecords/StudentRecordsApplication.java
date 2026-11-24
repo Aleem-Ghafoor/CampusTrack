@@ -1,4 +1,4 @@
-package com.scd.StudentRecords;
+package com.scd.studentrecords;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
