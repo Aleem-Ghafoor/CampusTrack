@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Form</title>
+    <link rel="stylesheet" th:href="@{/css/student-form.css}">
+</head>
+
+<body>
+
+<div class="form-page"
+     th:with="isEdit=${student.regNo != null and !student.regNo.isEmpty()}">
+
+    <div class="form-header">
+        <div>
+            <h1 th:text="${isEdit} ? 'Edit Student' : 'Add New Student'">
+                Add New Student
+            </h1>
+            <p>Enter the student information below</p>
+        </div>
+
+        <a th:href="@{/students}" class="back-btn" style="text-decoration: none;">
+            Back to Students
+        </a>
+    </div>
+
+    <div class="student-form-card">
+
+        <form th:action="${isEdit}
+                ? @{/students/{regNo}/update(regNo=${student.regNo})}
+                : @{/students}"
+              method="post">
+
+            <div class="form-group">
+                <label for="regNo">Registration Number</label>
+
+                <input type="text"
+                       id="regNo"
+                       name="regNo"
+                       th:value="${student.regNo}"
+                       placeholder="e.g. REG-2026-009"
+                       required
+                       th:readonly="${isEdit}">
+            </div>
+
+            <div class="form-group">
+                <label for="name">Student Name</label>
+
+                <input type="text"
+                       id="name"
+                       name="name"
+                       th:value="${student.name}"
+                       placeholder="Enter student name"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label for="department">Department</label>
+
+                <select id="department"
+                        name="department"
+                        required>
+
+                    <option value="">Select Department</option>
+
+                    <option value="CS"
+                            th:selected="${student.department == 'CS'}">
+                        Computer Science (CS)
+                    </option>
+
+                    <option value="SE"
+                            th:selected="${student.department == 'SE'}">
+                        Software Engineering (SE)
+                    </option>
+
+                    <option value="AI"
+                            th:selected="${student.department == 'AI'}">
+                        Artificial Intelligence (AI)
+                    </option>
+
+                    <option value="DS"
+                            th:selected="${student.department == 'DS'}">
+                        Data Science (DS)
+                    </option>
+
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="cgpa">CGPA</label>
+
+                <input type="number"
+                       id="cgpa"
+                       name="cgpa"
+                       step="0.01"
+                       min="0"
+                       max="4"
+                       th:value="${student.cgpa}"
+                       placeholder="e.g. 3.45"
+                       required>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit"
+                        class="save-btn"
+                        th:text="${isEdit} ? 'Update Student' : 'Save Student'">
+                    Save Student
+                </button>
+
+                <a th:href="@{/students}" class="cancel-btn">
+                    Cancel
+                </a>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>
